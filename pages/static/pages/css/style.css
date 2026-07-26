@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap');
+
+/* Global layout and colors */
+body {
+    background-color: #cccccc;
+    font-family: "Alumni Sans", sans-serif;
+}
+
+p {
+    font-size: 1.3rem;
+    margin: 1.5px 0 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #000000;
+    margin: 4px 0 !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+.text-kite-white {
+    color: #cccccc !important;
+}
+
+/* Navbar */
+.kite-navbar {
+    background-color: #2a2a2a;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    min-height: 40px;
+}
+
+.kite-navbar .navbar-brand {
+    font-size: 1.8rem;
+}
+
+.kite-navbar .nav-link {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    color: #cccccc !important;
+    font-size: 1.5rem;
+}
+
+.navbar .nav-item form {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-item .nav-link {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.navbar-toggler {
+    border-color: #cccccc;
+    color: #cccccc;
+}
+
+.kite-navbar .navbar-nav .nav-link:hover,
+.kite-navbar .nav-item .nav-link:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.navbar {
+    padding: 0 !important;
+    min-height: 32px;
+}
+
+.navbar .container {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+
+.navbar .nav-link {
+    padding: 0 6px !important;
+    line-height: 1.0 !important;
+    font-size: 1.2rem;
+}
+
+/* Footer */
+.kite-footer {
+    background-color: #2a2a2a;
+}
+
+.kite-footer .container {
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+}
+
+/* Contact form */
+.kite-contact-form input,
+.kite-contact-form textarea {
+    width: 100%;
+    background-color: #0a0a0a;
+    color: #d3d3d3 !important;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.kite-contact-form input::placeholder,
+.kite-contact-form textarea::placeholder {
+    color: #d3d3d3;
+    opacity: 1;
+}
+
+.kite-contact-form textarea {
+    height: 50px;
+    resize: none;
+}
+
+.kite-contact-form .kite-contact-button {
+    background-color: #000000 !important;
+    color: #d3d3d3 !important;
+    font-weight: bold;
+    cursor: pointer;
+    width: 150px;
+    font-size: 0.9rem;
+    display: inline-block;
+    padding: 4px;
+    transition: 0.15s ease-in-out;
+}
+
+.kite-contact-form .kite-contact-button:hover {
+    background-color: #737373 !important;
+    color: #000000 !important;
+}
+
+.kite-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.kite-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.kite-title {
+    width: 250px;          /* <-- FIXEN: fast bredd på texten */
+    margin-right: -100px;     /* avstånd till bilden */
+}
+
+.kite-thumb {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+}

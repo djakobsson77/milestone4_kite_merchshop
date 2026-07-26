@@ -10,3 +10,12 @@ def about(request):
 
 def gallery(request):
     return render(request, 'pages/gallery.html')
+
+def test_page(request):
+    return render(request, "pages/test.html")
+
+def contact_dummy(request):
+    if request.method == "POST":
+        # Ignorera POST helt – bara returnera något
+        return render(request, "pages/test.html")
+    return render(request, "pages/test.html")
