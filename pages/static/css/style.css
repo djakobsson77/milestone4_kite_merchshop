@@ -129,6 +129,8 @@ a {
     color: #000000 !important;
 }
 
+/* List of kite records on the about page */
+
 .kite-list {
     list-style: none;
     padding: 0;
@@ -142,8 +144,8 @@ a {
 }
 
 .kite-title {
-    width: 250px;          /* <-- FIXEN: fast bredd på texten */
-    margin-right: -100px;     /* avstånd till bilden */
+    width: 250px;
+    margin-right: -100px;   /* Adjust text-image spacing for consistent alignment */
 }
 
 .kite-thumb {
@@ -152,4 +154,19 @@ a {
     object-fit: cover;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.gallery-thumb {
+    display: block;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.gallery-thumb:hover {
+    transform: scale(1.05);
+}
+
+.gallery-thumb:focus {
+    outline: none;
 }
