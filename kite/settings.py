@@ -51,6 +51,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Authentication settings
+LOGIN_REDIRECT_URL = 'home'
+
 ROOT_URLCONF = 'kite.urls'
 
 TEMPLATES = [

@@ -7,14 +7,21 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('gallery/', views.gallery, name='gallery'),
     path(
+        "login/",
+        auth_views.LoginView.as_view(
+            template_name="pages/login.html"
+        ),
+        name="login",
+    ),
+    path(
         "logout/",
         auth_views.LogoutView.as_view(
             template_name="pages/logged_out.html"
         ),
         name="logout",
     ),
-    path("test/", views.test_page, name="test"),
-    path("login/", views.test_page, name="login"),
-    path("signup/", views.test_page, name="signup"),
-    path("contact/", views.contact_dummy, name="contact"),
+    path("signup/", views.signup, name="signup"),
+    path("contact/", views.contact, name="contact"),
+    path("contact/success/", views.contact_success, name="contact_success"),
+
 ]
