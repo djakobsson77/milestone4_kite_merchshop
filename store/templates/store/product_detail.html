@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="product-detail-container">
+
+    <div class="product-detail-card">
+
+        {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="detail-image">
+        {% endif %}
+
+        <div class="detail-info">
+            <h1 class="detail-title">{{ product.name }}</h1>
+
+            <p class="detail-price">{{ product.price }} €</p>
+
+            <p class="detail-description">
+                {{ product.description }}
+            </p>
+
+            <a href="/store/" class="back-btn">Back to store</a>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
