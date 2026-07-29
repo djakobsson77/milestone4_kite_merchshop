@@ -2,7 +2,7 @@
 
 /* Global layout and colors */
 body {
-    background-color: #cccccc;
+    background-color: #e5e5e5;
     font-family: "Alumni Sans", sans-serif;
 }
 
@@ -21,7 +21,7 @@ a {
 }
 
 .text-kite-white {
-    color: #cccccc !important;
+    color: #e5e5e5 !important;
 }
 
 /* Navbar */
@@ -39,7 +39,7 @@ a {
 .kite-navbar .nav-link {
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
-    color: #cccccc !important;
+    color: #e5e5e5 !important;
     font-size: 1.5rem;
 }
 
@@ -54,8 +54,8 @@ a {
 }
 
 .navbar-toggler {
-    border-color: #cccccc;
-    color: #cccccc;
+    border-color: #e5e5e5;
+    color: #e5e5e5;
 }
 
 .kite-navbar .navbar-nav .nav-link:hover,
@@ -125,10 +125,16 @@ a {
 }
 
 .kite-contact-form .kite-contact-button:hover {
-    background-color: #737373 !important;
+    background-color: #e5e5e5 !important;
     color: #000000 !important;
 }
 
+.kite-copyright-text {
+    text-align: center;
+    font-size: 1.0rem;
+    color: #e5e5e5 !important;
+    padding: 4px 0;
+}
 /* List of kite records on the about page */
 
 .kite-list {
@@ -211,7 +217,7 @@ a {
 }
 
 .product-card {
-    background: #111;
+    background: #727272 !important;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
@@ -232,17 +238,20 @@ a {
 .product-name {
     font-size: 1.2rem;
     margin-bottom: 5px;
+    font-weight: 600;
 }
 
 .product-price {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-bottom: 15px;
     opacity: 0.9;
+    color: #000000 !important;
+    font-weight: 600;
 }
 
 .product-btn {
     background-color: #000000 !important;
-    color: #d3d3d3 !important;
+    color: #e5e5e5 !important;
     font-weight: bold;
     cursor: pointer;
     width: 150px;
@@ -253,6 +262,12 @@ a {
 }
 
 .product-btn:hover {
-    background: #d3d3d3;
+    background: #e5e5e5 !important;
     color: #000000 !important;
+}
+
+.detail-image {
+    width: 400px;
+    height: auto;
+    border-radius: 8px;
 }
