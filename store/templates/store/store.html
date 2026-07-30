@@ -19,6 +19,8 @@
                         <h3 class="product-name">{{ product.name }}</h3>
                         <p class="product-price">{{ product.price }} €</p>
                         <a href="{% url 'product_detail' product.pk %}" class="product-btn">View product</a>
+                        
+                        <a href="{% url 'add_to_cart' product.id %}" class="add-btn">Add to cart</a>
                     </div>
                 {% endif %}
             {% endfor %}

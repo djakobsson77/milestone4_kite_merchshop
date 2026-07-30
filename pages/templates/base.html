@@ -77,16 +77,11 @@
         </nav>
     </header>
 
-    {% if messages %}
-    <section id="alerts" class="container mt-3">
-        {% for msg in messages %}
-        <div class="mi-alert">
-            {{ msg }}
-        </div>
-        {% endfor %}
-    </section>
-    {% endif %}
-
+   {% if messages %}
+    {% for message in messages %}
+        <p class="{{ message.tags }}">{{ message }}</p>
+    {% endfor %}
+{% endif %}
 
     <main>
 
