@@ -46,3 +46,6 @@ def contact(request):
 
 def contact_success(request):
     return render(request, "pages/contact_success.html")
+
+def checkout(request):
+    return render(request, 'store/checkout.html')

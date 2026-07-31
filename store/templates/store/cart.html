@@ -38,5 +38,10 @@
     {% else %}
         <p>Your cart is empty.</p>
     {% endif %}
+    <div class="cart-actions">
+    <a href="{% url 'store' %}" class="btn cart-btn-secondary">Continue shopping</a>
+    <a href="{% url 'checkout' %}" class="btn cart-btn-primary">Checkout</a>
+    </div>
+
 </div>
 {% endblock %}

@@ -1,3 +1,15 @@
+ document.addEventListener("DOMContentLoaded", function() {
+    const hash = window.location.hash;
+    if (hash) {
+        const target = document.querySelector(hash);
+        if (target) {
+            setTimeout(() => {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 150);
+        }
+    }
+});
+ 
  // Auto-fade alerts
 setTimeout(() => {
     document.querySelectorAll('.mi-alert').forEach(el => {

@@ -2,84 +2,109 @@
 
 {% block content %}
 <div class="store-container">
+    <a href="{% url 'cart' %}" class="store-cart-btn">
+        🛒 Cart
+    </a>
 
     <h1 class="store-title">KITE MERCH STORE</h1>
     <p class="store-subtitle">Official merchandise, vinyl & exclusive editions</p>
 
     <!-- T-SHIRTS -->
-    <section class="store-section">
+    <section class="store-section" id="tshirt">
         <h2 class="category-title">T‑shirts</h2>
         <div class="product-grid">
             {% for product in products %}
-                {% if product.category == "tshirt" %}
-                    <div class="product-card">
-                        {% if product.image %}
-                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
-                        {% endif %}
-                        <h3 class="product-name">{{ product.name }}</h3>
-                        <p class="product-price">{{ product.price }} €</p>
-                        <a href="{% url 'product_detail' product.pk %}" class="product-btn">View product</a>
-                        
-                        <a href="{% url 'add_to_cart' product.id %}" class="add-btn">Add to cart</a>
-                    </div>
+            {% if product.category == "tshirt" %}
+            <div class="product-card">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
                 {% endif %}
+                <h3 class="product-name">{{ product.name }}</h3>
+                <p class="product-price">{{ product.price }} €</p>
+                {% if product.stock > 0 %}
+                <p class="product-stock in-stock">In stock: {{ product.stock }}</p>
+                {% else %}
+                <p class="product-stock out-of-stock">Out of stock</p>
+                {% endif %}
+                <a href="{% url 'product_detail' product.pk %}" class="product-btn">View product</a>
+                <a href="{% url 'add_to_cart' product.id %}" class="add-btn">Add to cart</a>
+            </div>
+            {% endif %}
             {% endfor %}
         </div>
     </section>
 
     <!-- LONGSLEEVE & HOODIES -->
-    <section class="store-section">
+    <section class="store-section" id="longsleeve">
         <h2 class="category-title">Longsleeve & Hoodies</h2>
         <div class="product-grid">
             {% for product in products %}
-                {% if product.category == "longsleeve" %}
-                    <div class="product-card">
-                        {% if product.image %}
-                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
-                        {% endif %}
-                        <h3 class="product-name">{{ product.name }}</h3>
-                        <p class="product-price">{{ product.price }} €</p>
-                        <a href="{% url 'product_detail' product.pk %}" class="product-btn">View product</a>
-                    </div>
+            {% if product.category == "longsleeve" %}
+            <div class="product-card">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
                 {% endif %}
+                <h3 class="product-name">{{ product.name }}</h3>
+                <p class="product-price">{{ product.price }} €</p>
+                {% if product.stock > 0 %}
+                <p class="product-stock in-stock">In stock: {{ product.stock }}</p>
+                {% else %}
+                <p class="product-stock out-of-stock">Out of stock</p>
+                {% endif %}
+                <a href="{% url 'product_detail' product.pk %}" class="product-btn">View product</a>
+                <a href="{% url 'add_to_cart' product.id %}" class="add-btn">Add to cart</a>
+            </div>
+            {% endif %}
             {% endfor %}
         </div>
     </section>
 
     <!-- POSTERS -->
-    <section class="store-section">
+    <section class="store-section" id="poster">
         <h2 class="category-title">Posters</h2>
         <div class="product-grid">
             {% for product in products %}
-                {% if product.category == "poster" %}
-                    <div class="product-card">
-                        {% if product.image %}
-                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
-                        {% endif %}
-                        <h3 class="product-name">{{ product.name }}</h3>
-                        <p class="product-price">{{ product.price }} €</p>
-                        <a href="{% url 'product_detail' product.pk %}" class="product-btn">View product</a>
-                    </div>
+            {% if product.category == "poster" %}
+            <div class="product-card">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
                 {% endif %}
+                <h3 class="product-name">{{ product.name }}</h3>
+                <p class="product-price">{{ product.price }} €</p>
+                {% if product.stock > 0 %}
+                <p class="product-stock in-stock">In stock: {{ product.stock }}</p>
+                {% else %}
+                <p class="product-stock out-of-stock">Out of stock</p>
+                {% endif %}
+                <a href="{% url 'product_detail' product.pk %}" class="product-btn">View product</a>
+                <a href="{% url 'add_to_cart' product.id %}" class="add-btn">Add to cart</a>
+            </div>
+            {% endif %}
             {% endfor %}
         </div>
     </section>
 
     <!-- VINYL -->
-    <section class="store-section">
+    <section class="store-section" id="vinyl">
         <h2 class="category-title">Vinyl & Special Editions</h2>
         <div class="product-grid">
             {% for product in products %}
-                {% if product.category == "vinyl" %}
-                    <div class="product-card">
-                        {% if product.image %}
-                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
-                        {% endif %}
-                        <h3 class="product-name">{{ product.name }}</h3>
-                        <p class="product-price">{{ product.price }} €</p>
-                        <a href="{% url 'product_detail' product.pk %}" class="product-btn">View product</a>
-                    </div>
+            {% if product.category == "vinyl" %}
+            <div class="product-card">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
                 {% endif %}
+                <h3 class="product-name">{{ product.name }}</h3>
+                <p class="product-price">{{ product.price }} €</p>
+                {% if product.stock > 0 %}
+                <p class="product-stock in-stock">In stock: {{ product.stock }}</p>
+                {% else %}
+                <p class="product-stock out-of-stock">Out of stock</p>
+                {% endif %}
+                <a href="{% url 'product_detail' product.pk %}" class="product-btn">View product</a>
+                <a href="{% url 'add_to_cart' product.id %}" class="add-btn">Add to cart</a>
+            </div>
+            {% endif %}
             {% endfor %}
         </div>
     </section>

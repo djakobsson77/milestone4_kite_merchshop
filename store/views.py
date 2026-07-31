@@ -27,7 +27,7 @@ def add_to_cart(request, product_id):
     # If product is out of stock
     if product.stock <= 0:
         messages.error(request, "This item is out of stock.")
-        return redirect('product_detail', pk=product.id)
+        return redirect(f"/store/#{product.category}")
 
     # Get or create cart item
     cart_item, created = CartItem.objects.get_or_create(
@@ -38,21 +38,33 @@ def add_to_cart(request, product_id):
     # If product already is in cart
     if not created:
         # check that we do not exceed stock balance
-        if cart_item.quantity + 1 > product.stock:
+        if product.stock <= 0:
             messages.error(request, "Not enough stock available.")
-            return redirect('cart')
+            return redirect(f"/store/#{product.category}")
 
         cart_item.quantity += 1
         cart_item.save()
 
-    return redirect('cart')
+         # decrease stock
+        product.stock -= 1
+        product.save()
+
+    else:
+        # new cart item → decrease stock
+        product.stock -= 1
+        product.save()
+
+    messages.info(request, "Added to cart.")
+    return redirect(f"/store/#{product.category}")
 
 def increase_quantity(request, item_id):
     item = CartItem.objects.get(id=item_id)
 
-    if item.quantity < item.product.stock:
+    if item.product.stock > 0:
         item.quantity += 1
         item.save()
+        item.product.stock -= 1
+        item.product.save()
     else:
         messages.error(request, "Not enough stock available.")
 
@@ -61,6 +73,9 @@ def increase_quantity(request, item_id):
 
 def decrease_quantity(request, item_id):
     item = CartItem.objects.get(id=item_id)
+
+    item.product.stock += 1
+    item.product.save()
 
     if item.quantity > 1:
         item.quantity -= 1
@@ -73,6 +88,8 @@ def decrease_quantity(request, item_id):
 
 def remove_from_cart(request, item_id):
     item = CartItem.objects.get(id=item_id)
+    item.product.stock += item.quantity
+    item.product.save()
     item.delete()
     messages.success(request, "Item removed from cart.")
     return redirect('cart')

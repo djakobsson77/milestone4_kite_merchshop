@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="checkout-container">
+
+    <h2>Checkout</h2>
+
+    {% if cart_items %}
+        <table class="checkout-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for item in cart_items %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.product.price }} kr</td>
+                    <td>{{ item.quantity|mul:item.product.price }} kr</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="checkout-total">
+            <h3>Total: {{ total }} kr</h3>
+        </div>
+
+        <div class="checkout-actions">
+            <a href="{% url 'create_checkout_session' %}" class="checkout-btn">
+                Proceed to Payment
+            </a>
+        </div>
+
+    {% else %}
+        <p>Your cart is empty.</p>
+    {% endif %}
+
+</div>
+{% endblock %}
