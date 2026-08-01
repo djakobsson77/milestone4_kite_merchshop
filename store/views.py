@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product, CartItem
 from django.shortcuts import redirect
 from django.contrib import messages
+from django.http import HttpResponse
 
 # Create your views here.
 def store(request):
@@ -93,3 +94,24 @@ def remove_from_cart(request, item_id):
     item.delete()
     messages.success(request, "Item removed from cart.")
     return redirect('cart')
+
+def checkout(request):
+    cart_items = CartItem.objects.filter(user=request.user)
+
+    # Beräkna subtotal för varje item
+    for item in cart_items:
+        item.subtotal = item.product.price * item.quantity
+
+    # Beräkna totalen
+    total = sum(item.subtotal for item in cart_items)
+
+    context = {
+        'cart_items': cart_items,
+        'total': total,
+    }
+
+    return render(request, 'store/checkout.html', context)
+
+def create_checkout_session(request):
+    # Tillfällig stub – här kommer Stripe sen
+    return HttpResponse("Stripe checkout kommer här snart.")
