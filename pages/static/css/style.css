@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
 
 /* Global layout and colors */
 body {
     background-color: #e5e5e5;
-    font-family: "Alumni Sans", sans-serif;
+    font-family: "Share Tech", sans-serif;
 }
 
 p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin: 1.5px 0 !important;
 }
 
@@ -98,8 +98,8 @@ html {
 .kite-contact-form input,
 .kite-contact-form textarea {
     width: 100%;
-    background-color: #0a0a0a;
-    color: #d3d3d3 !important;
+    background-color: #000000 !important;
+    color: #e5e5e5 !important;
     padding: 4px;
     border-radius: 4px;
     font-size: 0.9rem;
@@ -107,7 +107,7 @@ html {
 
 .kite-contact-form input::placeholder,
 .kite-contact-form textarea::placeholder {
-    color: #d3d3d3;
+    color: #e5e5e5 !important;
     opacity: 1;
 }
 
@@ -118,7 +118,7 @@ html {
 
 .kite-contact-form .kite-contact-button {
     background-color: #000000 !important;
-    color: #d3d3d3 !important;
+    color: #e5e5e5 !important;
     font-weight: bold;
     cursor: pointer;
     width: 150px;
@@ -135,7 +135,7 @@ html {
 
 .kite-copyright-text {
     text-align: center;
-    font-size: 1.0rem;
+    font-size: 0.8rem;
     color: #e5e5e5 !important;
     padding: 4px 0;
 }
@@ -205,6 +205,32 @@ html {
 .store-section {
     margin-bottom: 60px;
 }
+
+.store-notice {
+    background: #727272;
+    color: #000000;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border-left: 4px solid #ff0099;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;            /* centrerar boxen */
+    text-align: center;            /* centrerar texten */
+}
+
+.store-notice a {
+    color: #e5e5e5;          /* neonrosa – hög kontrast mot #111 */
+    text-decoration: underline;
+}
+
+.store-notice a:hover {
+    color: #000000;          /* lite ljusare rosa vid hover */
+    text-decoration: underline;
+}
+
 
 .category-title {
     font-size: 2rem;
@@ -476,4 +502,13 @@ html {
     background: #e5e5e5;
     color: #000000;
     border: 2px solid #000000;
+}
+
+.checkout-success {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* centrerar vertikalt */
+    align-items: center;        /* centrerar horisontellt */
+    height: 80vh;               /* tar upp nästan hela skärmen */
+    text-align: center;         /* centrerar texten */
 }

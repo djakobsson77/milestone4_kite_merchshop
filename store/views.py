@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+import stripe
+from django.conf import settings
+from django.urls import reverse
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Product, CartItem
-from django.shortcuts import redirect
 from django.contrib import messages
 from django.http import HttpResponse
 
@@ -113,5 +115,35 @@ def checkout(request):
     return render(request, 'store/checkout.html', context)
 
 def create_checkout_session(request):
-    # Tillfällig stub – här kommer Stripe sen
-    return HttpResponse("Stripe checkout kommer här snart.")
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+
+    cart_items = CartItem.objects.filter(user=request.user)
+
+    line_items = []
+    for item in cart_items:
+        line_items.append({
+            "price_data": {
+                "currency": "eur",  # ← du ville ha €
+                "product_data": {
+                    "name": item.product.name,
+                },
+                "unit_amount": int(item.product.price * 100),  # pris i cent
+            },
+            "quantity": item.quantity,
+        })
+
+    session = stripe.checkout.Session.create(
+        payment_method_types=["card"],
+        line_items=line_items,
+        mode="payment",
+        success_url=request.build_absolute_uri(reverse("checkout_success")),
+        cancel_url=request.build_absolute_uri(reverse("checkout")),
+    )
+
+    return redirect(session.url)
+
+def checkout_success(request):
+    # Töm kundvagnen efter betalning
+    CartItem.objects.filter(user=request.user).delete()
+
+    return render(request, "store/checkout_success.html")
