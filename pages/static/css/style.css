@@ -139,6 +139,33 @@ html {
     color: #e5e5e5 !important;
     padding: 4px 0;
 }
+
+/* notice for the home page */
+.home-notice {
+    background: #727272;
+    color: #000000;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border-left: 4px solid #ff0099;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.home-notice a {
+    color: #e5e5e5;
+    text-decoration: underline;
+}
+
+.home-notice a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
 /* List of kite records on the about page */
 .kite-list {
     list-style: none;
@@ -217,17 +244,17 @@ html {
     line-height: 1.4;
     max-width: 800px;
     margin-left: auto;
-    margin-right: auto;            /* centrerar boxen */
-    text-align: center;            /* centrerar texten */
+    margin-right: auto;
+    text-align: center;
 }
 
 .store-notice a {
-    color: #e5e5e5;          /* neonrosa – hög kontrast mot #111 */
+    color: #e5e5e5;
     text-decoration: underline;
 }
 
 .store-notice a:hover {
-    color: #000000;          /* lite ljusare rosa vid hover */
+    color: #000000;
     text-decoration: underline;
 }
 

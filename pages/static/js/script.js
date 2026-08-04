@@ -1,3 +1,4 @@
+ // Smooth Scrolling to Hash Anchors
  document.addEventListener("DOMContentLoaded", function() {
     const hash = window.location.hash;
     if (hash) {

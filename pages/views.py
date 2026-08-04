@@ -27,25 +27,12 @@ def signup(request):
     return render(request, "pages/signup.html", {"form": form})
 
 def contact(request):
-    if request.method == "POST":
-        name = request.POST.get("name")
-        email = request.POST.get("email")
-        message = request.POST.get("message")
+    return render(request, "pages/contact.html")
 
-        send_mail(
-            "New Contact Form Message",
-            f"From: {name}\nEmail: {email}\n\nMessage:\n{message}",
-            settings.DEFAULT_FROM_EMAIL,
-            ["djakobsson77@gmail.com"],
-        )
-
-        return redirect("contact_success")
+    return redirect("contact_success")
 
     return redirect("home")
 
 
 def contact_success(request):
     return render(request, "pages/contact_success.html")
-
-def checkout(request):
-    return render(request, 'store/checkout.html')

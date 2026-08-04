@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+    <meta name="robots" content="noindex, nofollow">
     <meta name="darkreader-lock" content="true">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
@@ -97,8 +98,7 @@
 
             <h3 class="text-kite-white">Contact me</h3>
 
-            <form class="kite-contact-form" method="POST" action="{% url 'contact' %}">
-                {% csrf_token %}
+            <form class="kite-contact-form" method="POST" action="https://formspree.io/f/mzeppkog">
                 <div class="row g-2 justify-content-center">
 
                     <div class="col-12 col-md-4">
@@ -113,6 +113,8 @@
                         <textarea name="message" placeholder="Message" required></textarea>
                     </div>
 
+                    <input type="hidden" name="_redirect" value="http://127.0.0.1:8000/contact/success/">
+                    
                     <div class="col-12 col-md-8">
                         <button type="submit" class="kite-contact-button">Send</button>
                     </div>
