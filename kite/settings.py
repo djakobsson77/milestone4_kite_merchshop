@@ -32,8 +32,9 @@ DEBUG = os.getenv('DEBUG') == 'True'
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://kite-merchshop.herokuapp.com'
+    'https://milestone4-fanmade-kite-5f7a4ad838a0.herokuapp.com'
 ]
+
 
 
 # Stripe keys
