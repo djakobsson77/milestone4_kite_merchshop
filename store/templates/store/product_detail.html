@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="product-detail-container">
@@ -6,7 +7,7 @@
     <div class="product-detail-card">
 
         {% if product.image %}
-            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="detail-image">
+            <img src="{% static 'images/products/' %}{{ product.image }}" alt="{{ product.name }}" class="detail-image">
         {% endif %}
 
         <div class="detail-info">
