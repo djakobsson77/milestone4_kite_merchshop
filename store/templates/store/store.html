@@ -31,7 +31,7 @@
             <div class="product-card">
                 {% if product.image %}
                 <!-- <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image"> -->
-                 <img src="{% static product.image %}" alt="{{ product.name }}" class="product-image">
+                <img src="{% static product.image %}" alt="{{ product.name }}" class="product-image">
                 {% endif %}
                 <h3 class="product-name">{{ product.name }}</h3>
                 <p class="product-price">{{ product.price }} €</p>
