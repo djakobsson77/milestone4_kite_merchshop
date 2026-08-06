@@ -28,6 +28,13 @@ html {
     scroll-behavior: smooth;
 }
 
+.size-image {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+}
+
+
 /* Navbar */
 .kite-navbar {
     background-color: #2a2a2a;
@@ -169,13 +176,6 @@ html {
     color: #000000;
     text-decoration: underline;
 }
-
-.synth-image {
-    max-width: 500px;
-    width: 100%;
-    height: auto;
-}
-
 
 /* List of kite records on the about page */
 .kite-list {

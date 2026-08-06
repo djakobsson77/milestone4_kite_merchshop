@@ -6,14 +6,18 @@ from django.conf import settings
 
 # Create your views here.
 
+
 def home(request):
     return render(request, 'pages/home.html')
+
 
 def about(request):
     return render(request, 'pages/about.html')
 
+
 def gallery(request):
     return render(request, 'pages/gallery.html')
+
 
 def signup(request):
     if request.method == "POST":
@@ -26,6 +30,7 @@ def signup(request):
 
     return render(request, "pages/signup.html", {"form": form})
 
+
 def contact(request):
     return render(request, "pages/contact.html")
 
@@ -36,3 +41,4 @@ def contact(request):
 
 def contact_success(request):
     return render(request, "pages/contact_success.html")
+    
