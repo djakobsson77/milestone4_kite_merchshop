@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 
 
 def store(request):
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('id')
     return render(request, "store/store.html", {"products": products})
 
 
