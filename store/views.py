@@ -1,3 +1,5 @@
+from urllib import request
+
 import stripe
 from django.conf import settings
 from django.urls import reverse
@@ -29,7 +31,7 @@ def cart(request):
                 "Please log in or sign up to continue."
             )
         )
-    return redirect("login")
+        return redirect("login")
     items = CartItem.objects.filter(user=request.user)
     total = sum(item.product.price * item.quantity for item in items)
 

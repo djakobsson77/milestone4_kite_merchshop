@@ -545,8 +545,8 @@ html {
 .checkout-success {
     display: flex;
     flex-direction: column;
-    justify-content: center;   /* centrerar vertikalt */
-    align-items: center;        /* centrerar horisontellt */
-    height: 80vh;               /* tar upp nästan hela skärmen */
-    text-align: center;         /* centrerar texten */
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
 }

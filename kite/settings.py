@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'kite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-# Default: SQLite (lokal utveckling)
+# Default: SQLite (local development)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -98,7 +98,7 @@ DATABASES = {
     }
 }
 
-# Heroku / production: använd Postgres om DATABASE_URL finns
+# Heroku / production: use Postgres if DATABASE_URL exists
 DATABASE_URL = os.getenv('DATABASE_URL')
 
 if DATABASE_URL:
