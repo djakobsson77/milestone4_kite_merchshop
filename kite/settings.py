@@ -162,3 +162,7 @@ MESSAGE_TAGS = {
     messages.ERROR: 'error',
     messages.SUCCESS: 'success',
 }
+
+# Sendgrid settings
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
