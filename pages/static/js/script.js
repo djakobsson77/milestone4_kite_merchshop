@@ -23,42 +23,72 @@ setTimeout(() => {
 // Collect all gallery images
 const galleryImages = document.querySelectorAll('.gallery-thumb');
 const modalImage = document.querySelector('#modalImage');
-const galleryModal = new bootstrap.Modal(document.querySelector('#galleryModal'));
+const modalElement = document.querySelector('#galleryModal');
+if (modalElement) {
+    const galleryModal = new bootstrap.Modal(modalElement);
+}
 
 let currentIndex = 0;
 
 // Open modal when clicking a thumbnail
-galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-        currentIndex = parseInt(img.dataset.index);
-        modalImage.src = img.src;
-        galleryModal.show();
+if (galleryImages.length > 0) {
+    galleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+            currentIndex = parseInt(img.dataset.index);
+            modalImage.src = img.src;
+            galleryModal.show();
+        });
     });
-});
+}
+
 
 // Next image
-document.querySelector('#nextBtn').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % galleryImages.length;
-    modalImage.src = galleryImages[currentIndex].src;
-});
-
-// Previous image
-document.querySelector('#prevBtn').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-    modalImage.src = galleryImages[currentIndex].src;
-});
-
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if (!document.querySelector('#galleryModal').classList.contains('show')) return;
-
-    if (e.key === 'ArrowRight') {
+const nextBtn = document.querySelector('#nextBtn');
+if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % galleryImages.length;
         modalImage.src = galleryImages[currentIndex].src;
-    }
+    });
+}
 
-    if (e.key === 'ArrowLeft') {
+
+// Previous image
+const prevBtn = document.querySelector('#prevBtn');
+if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
         modalImage.src = galleryImages[currentIndex].src;
-    }
-});
+    });
+}
+
+
+// Keyboard navigation
+const modalEl = document.querySelector('#galleryModal');
+if (modalEl) {
+    document.addEventListener('keydown', (e) => {
+        if (!modalEl.classList.contains('show')) return;
+
+        if (e.key === 'ArrowRight') {
+            currentIndex = (currentIndex + 1) % galleryImages.length;
+            modalImage.src = galleryImages[currentIndex].src;
+        }
+
+        if (e.key === 'ArrowLeft') {
+            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+            modalImage.src = galleryImages[currentIndex].src;
+        }
+    });
+}
+
+
+// Auto-fade messages
+window.onload = () => {
+    setTimeout(() => {
+        const msgs = document.querySelectorAll('.messages');
+        msgs.forEach(msg => {
+            msg.style.opacity = '0';
+            setTimeout(() => msg.remove(), 500);
+        });
+    }, 2500);
+};
+

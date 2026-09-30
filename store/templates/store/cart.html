@@ -21,8 +21,8 @@
                 <tr>
                     <td>{{ item.product.name }}</td>
                     <td>{{ item.quantity }}</td>
-                    <td>{{ item.product.price }} kr</td>
-                    <td>{{ item.product.price|floatformat:2|add:item.quantity|floatformat:2 }} kr</td>
+                    <td>{{ item.product.price }} €</td>
+                    <td>{{ item.product.price|floatformat:2|add:item.quantity|floatformat:2 }} €</td>
                     <td>
                         <a href="{% url 'increase_quantity' item.id %}">+</a>
                         <a href="{% url 'decrease_quantity' item.id %}">-</a>
@@ -33,7 +33,7 @@
             </tbody>
         </table>
 
-        <h3 class="cart-total">Total: {{ total }} kr</h3>
+        <h3 class="cart-total">Total: {{ total }} €</h3>
 
     {% else %}
         <p>Your cart is empty.</p>

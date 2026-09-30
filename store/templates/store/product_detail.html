@@ -18,8 +18,8 @@
             <p class="detail-description">
                 {{ product.description }}
             </p>
-
-            <a href="/store/" class="back-btn">Back to store</a>
+            <a href="{% url 'add_to_cart' product.id %}" class="product-btns">Add to cart</a><br>
+            <a href="/store/" class="product-btns">Back to store</a>
         </div>
 
     </div>

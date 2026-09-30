@@ -51,6 +51,11 @@ html {
     height: auto;
 }
 
+img.img-fluid {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* Navbar */
 .kite-navbar {
@@ -407,7 +412,7 @@ html {
 
 
 /* Product detail page */
-.back-btn {
+.product-btns {
     display: inline-block;
     margin-bottom: 20px;
     padding: 6px 12px;
@@ -418,7 +423,7 @@ html {
     font-weight: bold;
 }
 
-.back-btn:hover {
+.product-btns:hover {
     transform: translateY(-4px);
 }
 
@@ -438,6 +443,8 @@ html {
     border: 2px solid #000000;
     z-index: 9999;
     text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease;
 }
 
 .error {
