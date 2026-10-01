@@ -1,3 +1,4 @@
+from itertools import product
 from urllib import request
 
 import stripe
@@ -55,13 +56,20 @@ def add_to_cart(request, product_id):
         product = Product.objects.get(id=product_id)
     except Product.DoesNotExist:
         messages.error(request, "The product you tried to add does not exist.")
-        return redirect("store")
+        referer = request.META.get('HTTP_REFERER')
+        if referer:
+            return redirect(referer)
+        return redirect('product_detail', pk=product.id)
+        
 
     # If product is out of stock
     if product.stock <= 0:
         messages.error(request, "This item is out of stock.")
-        return redirect(f"/store/#{product.category}")
-
+        referer = request.META.get('HTTP_REFERER')
+        if referer:
+            return redirect(referer)
+        return redirect('product_detail', pk=product.id)
+        
     # Get or create cart item
     cart_item, created = CartItem.objects.get_or_create(
         user=request.user,
@@ -71,9 +79,13 @@ def add_to_cart(request, product_id):
     # If product already is in cart
     if not created:
         # check that we do not exceed stock balance
-        if product.stock <= 0:
+        if cart_item.quantity + 1 > product.stock:
             messages.error(request, "Not enough stock available.")
-            return redirect(f"/store/#{product.category}")
+            referer = request.META.get('HTTP_REFERER')
+            if referer:
+                return redirect(referer)
+            return redirect('product_detail', pk=product.id)
+           
 
         cart_item.quantity += 1
         cart_item.save()
@@ -88,7 +100,10 @@ def add_to_cart(request, product_id):
         product.save()
 
     messages.info(request, "Added to cart.")
-    return redirect(f"/store/#{product.category}")
+    referer = request.META.get('HTTP_REFERER')
+    if referer:
+        return redirect(referer)
+    return redirect('product_detail', pk=product.id)
 
 
 def increase_quantity(request, item_id):

@@ -1,17 +1,4 @@
- // Smooth Scrolling to Hash Anchors
- document.addEventListener("DOMContentLoaded", function() {
-    const hash = window.location.hash;
-    if (hash) {
-        const target = document.querySelector(hash);
-        if (target) {
-            setTimeout(() => {
-                target.scrollIntoView({ behavior: "smooth", block: "start" });
-            }, 150);
-        }
-    }
-});
- 
- // Auto-fade alerts
+// Auto-fade alerts
 setTimeout(() => {
     document.querySelectorAll('.mi-alert').forEach(el => {
         el.style.transition = "opacity 0.5s ease";
@@ -24,8 +11,9 @@ setTimeout(() => {
 const galleryImages = document.querySelectorAll('.gallery-thumb');
 const modalImage = document.querySelector('#modalImage');
 const modalElement = document.querySelector('#galleryModal');
+let galleryModal = null;
 if (modalElement) {
-    const galleryModal = new bootstrap.Modal(modalElement);
+    galleryModal = new bootstrap.Modal(modalElement);
 }
 
 let currentIndex = 0;
