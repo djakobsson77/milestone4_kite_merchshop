@@ -7,21 +7,53 @@
 
     <form method="POST" class="mx-auto" style="max-width: 400px;">
         {% csrf_token %}
+
+        <!-- Non-field errors (t.ex. password mismatch) -->
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        <!-- Username -->
         <div class="mb-3">
             {{ form.username.label_tag }}
             {{ form.username }}
+
+            {% if form.username.errors %}
+                <div class="text-danger">
+                    {{ form.username.errors }}
+                </div>
+            {% endif %}
+
             <div class="helptext">{{ form.username.help_text }}</div>
         </div>
 
+        <!-- Password 1 -->
         <div class="mb-3">
             {{ form.password1.label_tag }}
             {{ form.password1 }}
+
+            {% if form.password1.errors %}
+                <div class="text-danger">
+                    {{ form.password1.errors }}
+                </div>
+            {% endif %}
+
             <div class="helptext">{{ form.password1.help_text|safe }}</div>
         </div>
 
+        <!-- Password 2 -->
         <div class="mb-3">
             {{ form.password2.label_tag }}
             {{ form.password2 }}
+
+            {% if form.password2.errors %}
+                <div class="text-danger">
+                    {{ form.password2.errors }}
+                </div>
+            {% endif %}
+
             <div class="helptext">{{ form.password2.help_text }}</div>
         </div>
 
